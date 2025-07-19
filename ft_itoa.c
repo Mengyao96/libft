@@ -6,15 +6,15 @@
 /*   By: mezhang <mezhang@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 19:01:53 by mezhang           #+#    #+#             */
-/*   Updated: 2025/07/09 20:42:33 by mezhang          ###   ########.fr       */
+/*   Updated: 2025/07/11 12:13:51 by mezhang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	n_digit(long num)
+static size_t	n_digit(long num)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (num <= 0)
@@ -33,7 +33,7 @@ static int	n_digit(long num)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		len;
+	size_t	len;
 	long	num;
 
 	num = (long)n;

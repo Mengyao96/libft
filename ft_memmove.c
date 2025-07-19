@@ -6,7 +6,7 @@
 /*   By: mezhang <mezhang@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:02:10 by mezhang           #+#    #+#             */
-/*   Updated: 2025/07/10 12:17:26 by mezhang          ###   ########.fr       */
+/*   Updated: 2025/07/11 12:22:43 by mezhang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	*ft_memmove(void *des, const void *src, size_t len)
 }
 
 /* #include <string.h>
-
 int	main(void)
 {
 	// char		*des=NULL;
@@ -46,7 +45,7 @@ int	main(void)
 	// size_t		n = 5;
 
 
-	printf("%s \n", memmove("12345", (void *)0, 0));
+	printf("%s \n", memmove((void *)0, "12345", 0));
 	ft_putchar_fd('\n', 1);
-	printf("%s \n", ft_memmove("45645", (void *)0, 0));
+	printf("%s \n", ft_memmove( (void *)0, "45645",0));
 } */

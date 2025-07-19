@@ -6,7 +6,7 @@
 /*   By: mezhang <mezhang@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:50:07 by mezhang           #+#    #+#             */
-/*   Updated: 2025/07/10 11:16:51 by mezhang          ###   ########.fr       */
+/*   Updated: 2025/07/11 13:40:08 by mezhang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	dst[i] = '\0';
-	while (src[i])
-		i++;
-	return (i);
+	return (ft_strlen(src));
 }
 
 /* #include <stdio.h>
@@ -40,9 +38,9 @@ int main(void)
 	char	dest1[10] = "hello";
 	char	src1[] = "123456";
 
-	printf("%s %lu\n", src, ft_strlcpy(dest, src, 8));
+	printf("%s %lu\n", src, ft_strlcpy(dest, "", 8));
 	printf("%s\n", dest);
-	printf("%s %lu\n", src1, strlcpy(dest1, src1, 8));
+	printf("%s %lu\n", src1, strlcpy(dest1, "", 8));
 	printf("%s\n", dest1);
 	return 0;
 } */

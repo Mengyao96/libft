@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mezhang <mezhang@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:41:45 by mezhang           #+#    #+#             */
-/*   Updated: 2025/07/07 22:01:37 by mezhang          ###   ########.fr       */
+/*   Updated: 2025/07/14 11:56:21 by mezhang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*ptr;
 	t_list	*temp;
 
+	if (!lst || !del)
+		return ;
 	ptr = *lst;
 	while (ptr != NULL)
 	{
-		del(ptr->content);
 		temp = ptr;
+		if (del)
+			del(ptr->content);
 		ptr = ptr->next;
 		free(temp);
 	}

@@ -6,7 +6,7 @@
 /*   By: mezhang <mezhang@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 20:32:10 by mezhang           #+#    #+#             */
-/*   Updated: 2025/07/09 22:54:23 by mezhang          ###   ########.fr       */
+/*   Updated: 2025/07/11 13:44:09 by mezhang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str = "0123456789";
 
 	z = str[i % ft_strlen(str)];
-	return (z);
+	return (0);
 }
 
 int	main(void)

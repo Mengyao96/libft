@@ -6,7 +6,7 @@
 /*   By: mezhang <mezhang@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 13:39:25 by mezhang           #+#    #+#             */
-/*   Updated: 2025/07/09 22:49:12 by mezhang          ###   ########.fr       */
+/*   Updated: 2025/07/10 22:55:59 by mezhang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,36 @@ static size_t	substr_len(const char *s, char c)
 static char	*get_substr(const char *s, char c)
 {
 	char	*substr;
-	int		j;
+	size_t	j;
+	size_t	len;
 
-	j = 0;
-	substr = (char *)malloc(sizeof(char) * (substr_len(s, c) + 1));
+	len = substr_len(s, c);
+	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
-	while (*s && *s != c)
+	j = 0;
+	while (s[j] && j < len)
 	{
-		substr[j] = *s;
-		s++;
+		substr[j] = s[j];
 		j++;
 	}
 	substr[j] = '\0';
 	return (substr);
+}
+
+static void	*free_rest(char **arr, int i)
+{
+	if (!arr[i])
+	{
+		while (i--)
+		{
+			free(arr[i]);
+		}
+		free(arr);
+		return (NULL);
+	}
+	else
+		return (arr[i]);
 }
 
 char	**ft_split(char const *s, char c)
@@ -77,11 +93,11 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*s)
 	{
-		if (*s != c)
+		if (*s && *s != c)
 		{
 			ptr[i] = get_substr(s, c);
 			if (!ptr[i])
-				return (NULL);
+				return (free_rest(ptr, i), NULL);
 			s = s + substr_len(s, c);
 			i++;
 		}
@@ -94,12 +110,12 @@ char	**ft_split(char const *s, char c)
 
 /* int	main(void)
 {
-	char const	*s1 = "lorem ipsum dolor sit amet, consectetur adipspendisse";
-	char		c = ' ';
+	char const	*s1 = "hello!";
+	// char		c = 32:' ';
 	char		**ptr;
 	int			i = 0;
 
-	ptr = ft_split(s1, c);
+	ptr = ft_split(s1, ' ');
 	while (ptr[i] != NULL)
 	{
 		printf("%s\n", ptr[i]);
